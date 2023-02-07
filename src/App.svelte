@@ -1,10 +1,20 @@
 <script>
-	export let name;
+	let name = 'Yoshi'
+	let beltColor = 'black';
+
+	const handleClick = () => {
+		beltColor = 'orange';
+	}
+	const handleInput = (e) => {
+		beltColor = e.target.value
+	}
 </script>
 
 <main>
-	<h1>Welcome to Piano Pay!</h1>
-	<p>An app to track.</p>
+	<h1>Welcome to Piano Pay! {name}</h1>
+	<p style="color: {beltColor}">An app to track. {beltColor} belt</p>
+	<button on:click={handleClick}>update belt color</button>
+	<input type="text" bind:value={beltColor}>
 </main>
 
 <style>
