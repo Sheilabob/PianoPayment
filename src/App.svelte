@@ -1,6 +1,6 @@
 <script>
 	let amountDue = 75;
-	let amountPaid = '75';
+	let amountPaid = 75;
 	let paymentColor = 'black';
 
 	const handlePayment = (e) => {
@@ -27,7 +27,7 @@ console.log(amountPaid)
 
 <main>
 	<h1>Welcome to Piano Pay! {name}</h1>
-	<p style="{+amountPaid >= 75 ? 'color:green' : 'color:red'}">An app to track. {beltColor} belt</p>
+	<p style="{+amountPaid >= amountDue ? 'color:green' : 'color:red'}">An app to track. {beltColor} belt</p>
 	<button on:click={handleClick}>update belt color</button>
 	<input type="text" bind:value={beltColor}>
 
