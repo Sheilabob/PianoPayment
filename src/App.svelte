@@ -1,4 +1,19 @@
 <script>
+	let amountDue = 75;
+	let amountPaid = '75';
+	let paymentColor = 'black';
+
+	const handlePayment = (e) => {
+		amountPaid = e.target.value
+	}
+console.log(amountPaid)
+	if (amountPaid == '85') {
+		paymentColor = 'green'
+	}
+	if (amountPaid == '65') {
+		paymentColor = 'red'
+	}
+
 	let name = 'Yoshi'
 	let beltColor = 'black';
 
@@ -12,9 +27,12 @@
 
 <main>
 	<h1>Welcome to Piano Pay! {name}</h1>
-	<p style="color: {beltColor}">An app to track. {beltColor} belt</p>
+	<p style="{+amountPaid >= 75 ? 'color:green' : 'color:red'}">An app to track. {beltColor} belt</p>
 	<button on:click={handleClick}>update belt color</button>
 	<input type="text" bind:value={beltColor}>
+
+	<label for="amt-paid">Amount Paid:</label>
+	<input type="text" id="amt-paid" bind:value={amountPaid}>
 </main>
 
 <style>
