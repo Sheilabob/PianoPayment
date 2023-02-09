@@ -1,7 +1,10 @@
 <script>
 	let amountDue = 75;
 	let amountPaid = 75;
+	let dateDue = new Date('02/08/2023');
+	let datePaid = new Date('02/08/2023');
 	let paymentColor = 'black';
+	let dateColor = 'black';
 
 	const handlePayment = (e) => {
 		amountPaid = e.target.value
@@ -12,6 +15,13 @@ console.log(amountPaid)
 	}
 	if (amountPaid == '65') {
 		paymentColor = 'red'
+	}
+
+	if (datePaid == '02/08/2023') {
+		dateColor = 'green'
+	}
+	if (datePaid == '02/09/2023') {
+		dateColor = 'red'
 	}
 
 	let name = 'Yoshi'
@@ -26,13 +36,15 @@ console.log(amountPaid)
 </script>
 
 <main>
-	<h1>Welcome to Piano Pay! {name}</h1>
+	<h1 style="{dateDue.getTime() >= new Date(datePaid).getTime() ? 'color:green' : 'color:red'}">Welcome to Piano Pay! {name}</h1>
 	<p style="{+amountPaid >= amountDue ? 'color:green' : 'color:red'}">An app to track. {beltColor} belt</p>
 	<button on:click={handleClick}>update belt color</button>
 	<input type="text" bind:value={beltColor}>
 
+	<label for="date-paid">Date:</label>
+	<input type="date" id="date-paid" bind:value={datePaid} />
 	<label for="amt-paid">Amount Paid:</label>
-	<input type="text" id="amt-paid" bind:value={amountPaid}>
+	<input type="text" id="amt-paid" bind:value={amountPaid} />
 </main>
 
 <style>
