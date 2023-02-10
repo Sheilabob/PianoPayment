@@ -37,7 +37,7 @@ console.log(amountPaid)
 
 <main>
 	<h1 style="{dateDue.getTime() >= new Date(datePaid).getTime() ? 'color:green' : 'color:red'}">Welcome to Piano Pay! {name}</h1>
-	<p style="{+amountPaid >= amountDue ? 'color:green' : 'color:red'}">An app to track. {beltColor} belt</p>
+	<p style="{+amountPaid >= amountDue ? 'color:green' : 'color:red'}">An app to track payments. {beltColor} belt</p>
 	<button on:click={handleClick}>update belt color</button>
 	<input type="text" bind:value={beltColor}>
 
@@ -45,6 +45,13 @@ console.log(amountPaid)
 	<input type="date" id="date-paid" bind:value={datePaid} />
 	<label for="amt-paid">Amount Paid:</label>
 	<input type="text" id="amt-paid" bind:value={amountPaid} />
+	<h1>HELLO</h1>
+	<label for="pmt-method">Payment Method</label>
+	<select id="pmt-method">
+		<option value="cash">Cash</option>
+		<option value="check">Check</option>
+		<option calue="paypal">Paypal</option>
+	</select>
 </main>
 
 <style>
