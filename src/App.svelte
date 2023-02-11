@@ -45,7 +45,6 @@ console.log(amountPaid)
 	<input type="date" id="date-paid" bind:value={datePaid} />
 	<label for="amt-paid">Amount Paid:</label>
 	<input type="text" id="amt-paid" bind:value={amountPaid} />
-	<h1>HELLO</h1>
 	<label for="pmt-method">Payment Method</label>
 	<select id="pmt-method">
 		<option value="cash">Cash</option>
