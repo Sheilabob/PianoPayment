@@ -1,10 +1,8 @@
 <script>
 	let amountDue = 75;
 	let amountPaid = 75;
-	let dateDue = new Date('02/08/2023');
+	let dateDue = new Date();
 	let datePaid = new Date('02/08/2023');
-	let paymentColor = 'black';
-	let dateColor = 'black';
 
 	const handlePayment = (e) => {
 		amountPaid = e.target.value
@@ -33,6 +31,18 @@ console.log(amountPaid)
 	const handleInput = (e) => {
 		beltColor = e.target.value
 	}
+
+	function getFormattedDate(date) {
+  var year = date.getFullYear();
+
+  var month = (1 + date.getMonth()).toString();
+  month = month.length > 1 ? month : '0' + month;
+
+  var day = date.getDate().toString();
+  day = day.length > 1 ? day : '0' + day;
+  
+  return month + '/' + day + '/' + year;
+}
 </script>
 
 <main>
@@ -40,11 +50,14 @@ console.log(amountPaid)
 	<p style="{+amountPaid >= amountDue ? 'color:green' : 'color:red'}">An app to track payments. {beltColor} belt</p>
 	<button on:click={handleClick}>update belt color</button>
 	<input type="text" bind:value={beltColor}>
-
+	<h2>Student Name: Sheila Strahan</h2>
+	<h3>Amount Due: ${amountDue}</h3>
+	<h3>Due Date: {getFormattedDate(dateDue)}</h3>
+	<h3>Input Payment Information:</h3>
 	<label for="date-paid">Date:</label>
 	<input type="date" id="date-paid" bind:value={datePaid} />
 	<label for="amt-paid">Amount Paid:</label>
-	<input type="text" id="amt-paid" bind:value={amountPaid} />
+	$<input type="text" id="amt-paid" bind:value={amountPaid} />
 	<label for="pmt-method">Payment Method</label>
 	<select id="pmt-method">
 		<option value="cash">Cash</option>
