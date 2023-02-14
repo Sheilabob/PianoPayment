@@ -4,6 +4,15 @@
 	let dateDue = new Date();
 	let datePaid = new Date('02/08/2023');
 
+	let paymentRecord = {
+		studentName: 'Sheila',
+		datePaid: '01/07/23',
+		amount: '$75',
+		method: 'Paypal'
+	}
+
+	let paymentRecordArray = [paymentRecord]
+
 	const handlePayment = (e) => {
 		amountPaid = e.target.value
 	}
@@ -64,6 +73,13 @@ console.log(amountPaid)
 		<option value="check">Check</option>
 		<option calue="paypal">Paypal</option>
 	</select>
+	<h3>Payment History</h3>
+	{#each paymentRecordArray as paymentRecord}
+	{paymentRecord.studentName}
+	{paymentRecord.datePaid}
+	{paymentRecord.amount}
+	{paymentRecord.method}
+	{/each}
 </main>
 
 <style>
