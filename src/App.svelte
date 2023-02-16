@@ -16,7 +16,6 @@
 	const handlePayment = (e) => {
 		amountPaid = e.target.value
 	}
-console.log(amountPaid)
 	if (amountPaid == '85') {
 		paymentColor = 'green'
 	}
@@ -52,6 +51,9 @@ console.log(amountPaid)
   
   return month + '/' + day + '/' + year;
 }
+
+console.log(amountPaid)
+
 </script>
 
 <main>
@@ -62,6 +64,7 @@ console.log(amountPaid)
 	<h2>Student Name: Sheila Strahan</h2>
 	<h3>Amount Due: ${amountDue}</h3>
 	<h3>Due Date: {getFormattedDate(dateDue)}</h3>
+	<div class="payment-form">
 	<h3>Input Payment Information:</h3>
 	<label for="date-paid">Date:</label>
 	<input type="date" id="date-paid" bind:value={datePaid} />
@@ -73,6 +76,10 @@ console.log(amountPaid)
 		<option value="check">Check</option>
 		<option calue="paypal">Paypal</option>
 	</select>
+	<div>
+	<button >Submit</button>
+</div>
+</div>
 	<h3>Payment History</h3>
 	{#each paymentRecordArray as paymentRecord}
 	{paymentRecord.studentName}
