@@ -7,11 +7,27 @@
 	let paymentRecord = {
 		studentName: 'Sheila',
 		datePaid: '01/07/23',
-		amount: '$75',
+		amount: '75',
 		method: 'Paypal'
 	}
+	let paymentRecord2 = {
+		studentName: 'Student',
+		datePaid: '01/08/23',
+		amount: '85',
+		method: 'Check'
+	}
 
-	let paymentRecordArray = [paymentRecord]
+	let paymentRecordArray = [paymentRecord, paymentRecord2]
+	let sum = 0;
+
+	let janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) === '01').map(record =>parseInt(record.amount)).reduce(function(a, b){
+  return a + b;
+})
+
+	console.log(paymentRecordArray.filter(record => record.datePaid.slice(0,2) === '01').map(record =>parseInt(record.amount)).reduce(function(a, b){
+  return a + b;
+}))
+
 
 	const handlePayment = (e) => {
 		amountPaid = e.target.value
@@ -52,8 +68,6 @@
   return month + '/' + day + '/' + year;
 }
 
-console.log(amountPaid)
-
 </script>
 
 <main>
@@ -81,12 +95,16 @@ console.log(amountPaid)
 </div>
 </div>
 	<h3>Payment History</h3>
+	<ul>
 	{#each paymentRecordArray as paymentRecord}
-	{paymentRecord.studentName}
+	<li>{paymentRecord.studentName}
 	{paymentRecord.datePaid}
-	{paymentRecord.amount}
-	{paymentRecord.method}
+	${paymentRecord.amount}
+	{paymentRecord.method}</li>
 	{/each}
+</ul>
+	<h3>Total for January</h3>
+	${janPayments}
 </main>
 
 <style>
