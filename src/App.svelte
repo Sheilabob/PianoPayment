@@ -67,6 +67,13 @@
   
   return month + '/' + day + '/' + year;
 }
+const submitPaymentInfo = () => {
+	paymentRecordArray.push({studentName: 'New Notsetyet',
+		datePaid: {datePaid},
+		amount: {amountPaid},
+		method: 'Notsetyet'})
+		console.log(paymentRecordArray)
+}
 
 </script>
 
@@ -91,7 +98,7 @@
 		<option calue="paypal">Paypal</option>
 	</select>
 	<div>
-	<button >Submit</button>
+	<button on:click={submitPaymentInfo}>Submit Payment Info</button>
 </div>
 </div>
 	<h3>Payment History</h3>
