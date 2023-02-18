@@ -95,14 +95,26 @@
 </div>
 </div>
 	<h3>Payment History</h3>
-	<ul>
-	{#each paymentRecordArray as paymentRecord}
-	<li>{paymentRecord.studentName}
-	{paymentRecord.datePaid}
-	${paymentRecord.amount}
-	{paymentRecord.method}</li>
-	{/each}
-</ul>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Date Paid</th>
+			<th>Amount</th>
+			<th>Method</th>
+		</tr>
+	</thead>
+		{#each paymentRecordArray as paymentRecord}
+		<tbody>
+
+		<td>{paymentRecord.studentName}</td>
+		<td>{paymentRecord.datePaid}</td>
+		<td>${paymentRecord.amount}</td>
+		<td>{paymentRecord.method}</td>
+	</tbody>
+
+		{/each}
+</table>
 	<h3>Total for January</h3>
 	${janPayments}
 </main>
