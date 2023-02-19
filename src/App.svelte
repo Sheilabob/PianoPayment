@@ -4,20 +4,17 @@
 	let dateDue = new Date();
 	let datePaid = new Date('02/08/2023');
 
-	let paymentRecord = {
+	let paymentRecordArray = [{
 		studentName: 'Sheila',
 		datePaid: '01/07/23',
 		amount: '75',
 		method: 'Paypal'
-	}
-	let paymentRecord2 = {
+	}, {
 		studentName: 'Student',
 		datePaid: '01/08/23',
 		amount: '85',
 		method: 'Check'
-	}
-
-	let paymentRecordArray = [paymentRecord, paymentRecord2]
+	}]
 	let sum = 0;
 
 	let janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) === '01').map(record =>parseInt(record.amount)).reduce(function(a, b){
@@ -72,8 +69,12 @@ const submitPaymentInfo = () => {
 		datePaid: {datePaid},
 		amount: {amountPaid},
 		method: 'Notsetyet'})
-		console.log(paymentRecordArray)
+console.log(paymentRecordArray)
+paymentRecordArray = paymentRecordArray
+
 }
+
+
 
 </script>
 
