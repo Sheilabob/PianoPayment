@@ -17,9 +17,7 @@
 	}]
 	let sum = 0;
 
-	let janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) === '01').map(record =>parseInt(record.amount)).reduce(function(a, b){
-  return a + b;
-})
+
 
 	console.log(paymentRecordArray.filter(record => record.datePaid.slice(0,2) === '01').map(record =>parseInt(record.amount)).reduce(function(a, b){
   return a + b;
@@ -66,13 +64,17 @@
 }
 const submitPaymentInfo = () => {
 	paymentRecordArray.push({studentName: 'New Notsetyet',
-		datePaid: datePaid,
+		datePaid: getFormattedDate(new Date(datePaid)),
 		amount: amountPaid,
 		method: 'Notsetyet'})
 console.log(paymentRecordArray)
 paymentRecordArray = paymentRecordArray
 
 }
+
+$: janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) === '01').map(record =>parseInt(record.amount)).reduce(function(a, b){
+  return a + b;
+})
 
 
 
