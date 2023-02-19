@@ -7,12 +7,12 @@
 	let paymentRecordArray = [{
 		studentName: 'Sheila',
 		datePaid: '01/07/23',
-		amount: '75',
+		amount: 75,
 		method: 'Paypal'
 	}, {
 		studentName: 'Student',
 		datePaid: '01/08/23',
-		amount: '85',
+		amount: 85,
 		method: 'Check'
 	}]
 	let sum = 0;
@@ -66,8 +66,8 @@
 }
 const submitPaymentInfo = () => {
 	paymentRecordArray.push({studentName: 'New Notsetyet',
-		datePaid: {datePaid},
-		amount: {amountPaid},
+		datePaid: datePaid,
+		amount: amountPaid,
 		method: 'Notsetyet'})
 console.log(paymentRecordArray)
 paymentRecordArray = paymentRecordArray
