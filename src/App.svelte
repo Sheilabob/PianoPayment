@@ -5,11 +5,13 @@
 	let datePaid = new Date('02/08/2023');
 
 	let paymentRecordArray = [{
+		id: 1,
 		studentName: 'Sheila',
 		datePaid: '01/07/23',
 		amount: 75,
 		method: 'Paypal'
 	}, {
+		id: 2,
 		studentName: 'Student',
 		datePaid: '01/08/23',
 		amount: 85,
@@ -63,7 +65,7 @@
   return month + '/' + day + '/' + year;
 }
 const submitPaymentInfo = () => {
-	paymentRecordArray.push({studentName: 'New Notsetyet',
+	paymentRecordArray.push({id: (paymentRecordArray.length + 1), studentName: 'New Notsetyet',
 		datePaid: getFormattedDate(new Date(datePaid)),
 		amount: amountPaid,
 		method: 'Notsetyet'})
