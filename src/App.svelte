@@ -116,7 +116,7 @@ $: janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) 
 			<th>Method</th>
 		</tr>
 	</thead>
-		{#each paymentRecordArray as paymentRecord}
+		{#each paymentRecordArray as paymentRecord (paymentRecord.id)}
 		<tbody >
 <tr class="payment-record">
 		<td>{paymentRecord.studentName}</td>
