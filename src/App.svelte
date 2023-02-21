@@ -115,12 +115,13 @@ $: janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) 
 		</tr>
 	</thead>
 		{#each paymentRecordArray as paymentRecord}
-		<tbody>
-
+		<tbody >
+<tr class="payment-record">
 		<td>{paymentRecord.studentName}</td>
 		<td>{paymentRecord.datePaid}</td>
 		<td>${paymentRecord.amount}</td>
 		<td>{paymentRecord.method}</td>
+	</tr>
 	</tbody>
 
 		{/each}
@@ -142,6 +143,10 @@ $: janPayments = paymentRecordArray.filter(record => record.datePaid.slice(0,2) 
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
+	}
+
+	tr.payment-record td {
+		border-bottom: 2px solid #7db2e0;
 	}
 
 	@media (min-width: 640px) {
